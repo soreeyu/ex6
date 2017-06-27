@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +19,7 @@ import com.choa.notice.NoticeServiceImpl;
 import com.choa.util.ListInfo;
 
 @Controller
-@RequestMapping(value="/notice/**") 
+@RequestMapping(value="/notice/**")
 public class NoticeController {
 	
 	
@@ -29,6 +31,7 @@ public class NoticeController {
 	@RequestMapping(value="noticeList", method=RequestMethod.GET)
 	public String noticeList(Model model,ListInfo listInfo) throws Exception{
 		List<BoardDTO> ar =noticeService.boardList(listInfo);
+		System.out.println(ar.get(1000).getTitle());
 		model.addAttribute("list", ar);
 		model.addAttribute("board", "notice");
 		model.addAttribute("info", listInfo);
@@ -106,5 +109,11 @@ public class NoticeController {
 		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/notice/noticeList";
 	}
+	
+	/*//Exception 발생시 홈으로 이동
+	@ExceptionHandler(Exception.class)
+	public String exception(){
+		return "error/notfound";
+	}*/
 
 }

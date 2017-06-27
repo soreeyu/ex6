@@ -2,9 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
+	<!-- AOP -->
+	<!-- 공통 로직 -->
+	<!-- <bean class="com.choa.aspect.CardCheck" id="cardCheck"/> -->
+	
+	
+	<!-- <aop:config>
+		<aop:aspect id="cardAspect" ref="cardCheck"> cardCheck가 aspect역할을 해줄 것이다 라고 정의
+			
+				.. : 하위의 모든 디렉터리
+				*() : 하위의 모든 메서드
+				(..) : 모든 매개변수
+			Transport 밑에 모든 메서드 ()는 매개변수 없는것 (..)는 매개변수가 몇개 있던 노상관
+			
+			<aop:pointcut expression="execution(* com.choa.aspect..Transport.*(..))" id="trans"/> experssion = 패턴을 가진 모든 것에 적용
+			<aop:around method="check" pointcut-ref="trans" /> 전 후로 모두 사용 하기 위해 around
+			
+		</aop:aspect>
+		
+		<aop:aspect id="cardReserve" ref="cardCheck"> aop가 하나 더 있다면 하나 더사용 
+			<aop:pointcut expression="execution(* com.choa.aspect..Trip.*(..))" id="trip"/>
+			<aop:before method="reservation" pointcut-ref="trip"/>  전에만 사용 하기 위해 before
+		</aop:aspect> 
+	</aop:config> -->
 	
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
