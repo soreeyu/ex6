@@ -17,11 +17,11 @@ public class TableTest extends MyAbstractTest{
 	@Test
 	public void Test() throws Exception{
 		TableADTO tableADTO = new TableADTO();
-		tableADTO.setNum(2);
-		tableADTO.setTitle("t2");
-		tableADTO.setWriter("choa2");
+		tableADTO.setNum(4);
+		tableADTO.setTitle("t4");
+		tableADTO.setWriter("choa4");
 		
-		int result = tableService.insertTable(tableADTO, 1);
+		int result = tableService.insertTable(tableADTO, 4);
 		assertNotEquals(0, result);
 	}
 }

@@ -12,7 +12,7 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
+	<annotation-driven />	<!-- Annotation 활성화  -->
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
@@ -53,6 +53,6 @@
 	<context:component-scan base-package="com.choa.aspect"/>
 	<context:component-scan base-package="com.choa.table"/>
 	
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy> <!-- AOP 전용 annotation 자동 읽어주는 것 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy> <!-- AOP 전용 annotation 자동 읽어주는 것 객체스캔하는 곳과 같은 곳에 넣어줘야함-->
 	
 </beans:beans>
